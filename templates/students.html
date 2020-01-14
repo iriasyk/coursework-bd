@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% block content %}
+
+ <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Department number</th>
+                <th scope="col">Form name</th>
+                <th scope="col">Answers on questions</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Location</th>
+                <th scope="col">Family state</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for user in students %}
+        <tr>
+            <td> {{user.student_email }} </td>
+            <td> {{user.department_number}} </td>
+            <td> {{user.form_name}} </td>
+            <td> {{user.answers_on_questions}} </td>
+            <td> {{user.student_name}} </td>
+            <td> {{user.student_age}} </td>
+            <td> {{user.student_gender}} </td>
+            <td> {{user.student_location}} </td>
+            <td> {{user.family_state}} </td>
+            <td>
+                <a href="/edit_students/{{user.student_email }} " type="button" class="btn btn-warning" name="btn_edit_student" data-user_id="{{user.student_email}}">Edit</a>
+                <a href="/delete_students/{{user.student_email }} " type="button" class="btn btn-danger" name="btn_delete_student" data-user_id="{{user.student_email}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+            <tr>
+                <td><a href="/new_students" type="button" class="btn btn-success" name="btn_new_student">New Student</a></td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+
+{% endblock %}
