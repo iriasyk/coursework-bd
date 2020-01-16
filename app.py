@@ -1,3 +1,4 @@
+import sqlalchemy
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
@@ -19,7 +20,7 @@ from sqlalchemy.sql import func
 app = Flask(__name__)
 app.secret_key = 'key'
 
-ENV = 'prod'
+ENV = 'dev'
 
 if ENV == 'dev':
     app.debug = True
@@ -78,90 +79,90 @@ class ormAnswer(db.Model):
 
 # db.drop_all()
 db.create_all()
-# db.session.query(ormStudent).delete()
-# db.session.query(ormForm).delete()
-# db.session.query(ormDepartament).delete()
-# db.session.query(ormAnswer).delete()
+db.session.query(ormStudent).delete()
+db.session.query(ormForm).delete()
+db.session.query(ormDepartament).delete()
+db.session.query(ormAnswer).delete()
 
-# Student1 = ormStudent(student_email='ihor.riasyk@gmail.com', department_number='132', form_name='Development',
-#                       answers_on_questions='Data science', student_name='Ihor Riasyk', student_age=20,
-#                       student_gender='male', student_location='Kiyv', family_state='unmarried')
-# Student2 = ormStudent(student_email='alla.makarenko@gmail.com', department_number='133', form_name='Subjects',
-#                       answers_on_questions='KPI', student_name='Alla Makarenko', student_age=19,
-#                       student_gender='female', student_location='Other cities', family_state='unmarried')
-# Student3 = ormStudent(student_email='serhiy28kpi@gmail.com', department_number='134', form_name='Justice',
-#                       answers_on_questions='Not always', student_name='Sergiy Gorodnuk', student_age=21,
-#                       student_gender='male', student_location='Kiyv', family_state='married')
-# Student4 = ormStudent(student_email='artemenko.yaroslav@gmail.com', department_number='133', form_name='Development',
-#                       answers_on_questions='Not always', student_name='Artemenko Yaroslav', student_age=23,
-#                       student_gender='male', student_location='Abroad', family_state='unmarried')
-# Student5 = ormStudent(student_email='anastasia.grigorenko@gmail.com', department_number='134', form_name='Subjects',
-#                       answers_on_questions='Yep', student_name='Anastasia Grigorenko', student_age=20,
-#                       student_gender='female', student_location='Kiyv', family_state='married')
-# Student6 = ormStudent(student_email='alex.buts@gmail.com', department_number='133', form_name='Justice',
-#                       answers_on_questions='Not always', student_name='Alex Buts', student_age=24,
-#                       student_gender='male', student_location='Abroad', family_state='unmarried')
-# Student7 = ormStudent(student_email='ivan.vovchenko@gmail.com', department_number='132', form_name='Development',
-#                       answers_on_questions='Frontend', student_name='Ivan Vovchenko', student_age=21,
-#                       student_gender='male', student_location='Other cities', family_state='married')
-# Student8 = ormStudent(student_email='ekaterina.buchinska@gmail.com', department_number='134', form_name='Justice',
-#                       answers_on_questions='Yep', student_name='Ekaterina Buchinska', student_age=19,
-#                       student_gender='female', student_location='Abroad', family_state='married')
-# Student9 = ormStudent(student_email='maks.milev@gmail.com', department_number='133', form_name='Development',
-#                       answers_on_questions='Data science', student_name='Maks Milev', student_age=22,
-#                       student_gender='male', student_location='Kiyv', family_state='married')
+Student1 = ormStudent(student_email='ihor.riasyk@gmail.com', department_number='132', form_name='Development',
+                      answers_on_questions='Data science', student_name='Ihor Riasyk', student_age=20,
+                      student_gender='male', student_location='Kiyv', family_state='unmarried')
+Student2 = ormStudent(student_email='alla.makarenko@gmail.com', department_number='133', form_name='Subjects',
+                      answers_on_questions='KPI', student_name='Alla Makarenko', student_age=19,
+                      student_gender='female', student_location='Other cities', family_state='unmarried')
+Student3 = ormStudent(student_email='serhiy28kpi@gmail.com', department_number='134', form_name='Justice',
+                      answers_on_questions='Not always', student_name='Sergiy Gorodnuk', student_age=21,
+                      student_gender='male', student_location='Kiyv', family_state='married')
+Student4 = ormStudent(student_email='artemenko.yaroslav@gmail.com', department_number='133', form_name='Development',
+                      answers_on_questions='Not always', student_name='Artemenko Yaroslav', student_age=23,
+                      student_gender='male', student_location='Abroad', family_state='unmarried')
+Student5 = ormStudent(student_email='anastasia.grigorenko@gmail.com', department_number='134', form_name='Subjects',
+                      answers_on_questions='Yep', student_name='Anastasia Grigorenko', student_age=20,
+                      student_gender='female', student_location='Kiyv', family_state='married')
+Student6 = ormStudent(student_email='alex.buts@gmail.com', department_number='133', form_name='Justice',
+                      answers_on_questions='Not always', student_name='Alex Buts', student_age=24,
+                      student_gender='male', student_location='Abroad', family_state='unmarried')
+Student7 = ormStudent(student_email='ivan.vovchenko@gmail.com', department_number='132', form_name='Development',
+                      answers_on_questions='Frontend', student_name='Ivan Vovchenko', student_age=21,
+                      student_gender='male', student_location='Other cities', family_state='married')
+Student8 = ormStudent(student_email='ekaterina.buchinska@gmail.com', department_number='134', form_name='Justice',
+                      answers_on_questions='Yep', student_name='Ekaterina Buchinska', student_age=19,
+                      student_gender='female', student_location='Abroad', family_state='married')
+Student9 = ormStudent(student_email='maks.milev@gmail.com', department_number='133', form_name='Development',
+                      answers_on_questions='Data science', student_name='Maks Milev', student_age=22,
+                      student_gender='male', student_location='Kiyv', family_state='married')
 
-# Form1 = ormForm(form_name='Development', questions='What areas of development are you most interested in?')
-# Form2 = ormForm(form_name='Subjects', questions='Which institute do you like most?')
-# Form3 = ormForm(form_name='Justice', questions='Do you think the attitude towards students at the department is fair?')
+Form1 = ormForm(form_name='Development', questions='What areas of development are you most interested in?')
+Form2 = ormForm(form_name='Subjects', questions='Which institute do you like most?')
+Form3 = ormForm(form_name='Justice', questions='Do you think the attitude towards students at the department is fair?')
 
-# Departament1 = ormDepartament(department_number=132, departament_name='FPM', departament_location='Kiyv')
-# Departament2 = ormDepartament(department_number=133, departament_name='IPSA', departament_location='Other cities')
-# Departament3 = ormDepartament(department_number=134, departament_name='FIOT', departament_location='Abroad')
+Departament1 = ormDepartament(department_number=132, departament_name='FPM', departament_location='Kiyv')
+Departament2 = ormDepartament(department_number=133, departament_name='IPSA', departament_location='Other cities')
+Departament3 = ormDepartament(department_number=134, departament_name='FIOT', departament_location='Abroad')
 
-# Answer1 = ormAnswer(answers_on_questions='Data science', answers_priority='Highest')
-# Answer2 = ormAnswer(answers_on_questions='KPI', answers_priority='Medium')
-# Answer3 = ormAnswer(answers_on_questions='Not always', answers_priority='Lowest')
-# Answer4 = ormAnswer(answers_on_questions='Yep', answers_priority='Lowest')
-# Answer5 = ormAnswer(answers_on_questions='Frontend', answers_priority='Highest')
+Answer1 = ormAnswer(answers_on_questions='Data science', answers_priority='Highest')
+Answer2 = ormAnswer(answers_on_questions='KPI', answers_priority='Medium')
+Answer3 = ormAnswer(answers_on_questions='Not always', answers_priority='Lowest')
+Answer4 = ormAnswer(answers_on_questions='Yep', answers_priority='Lowest')
+Answer5 = ormAnswer(answers_on_questions='Frontend', answers_priority='Highest')
 
-# Departament1.students_.append(Student1)
-# Departament2.students_.append(Student2)
-# Departament3.students_.append(Student3)
-# Departament3.students_.append(Student4)
-# Departament1.students_.append(Student5)
-# Departament2.students_.append(Student6)
-# Departament1.students_.append(Student7)
-# Departament3.students_.append(Student8)
-# Departament2.students_.append(Student9)
+Departament1.students_.append(Student1)
+Departament2.students_.append(Student2)
+Departament3.students_.append(Student3)
+Departament3.students_.append(Student4)
+Departament1.students_.append(Student5)
+Departament2.students_.append(Student6)
+Departament1.students_.append(Student7)
+Departament3.students_.append(Student8)
+Departament2.students_.append(Student9)
 
 
-# Form1.students__.append(Student1)
-# Form2.students__.append(Student2)
-# Form3.students__.append(Student3)
-# Form1.students__.append(Student4)
-# Form2.students__.append(Student5)
-# Form3.students__.append(Student6)
-# Form1.students__.append(Student7)
-# Form3.students__.append(Student8)
-# Form1.students__.append(Student9)
+Form1.students__.append(Student1)
+Form2.students__.append(Student2)
+Form3.students__.append(Student3)
+Form1.students__.append(Student4)
+Form2.students__.append(Student5)
+Form3.students__.append(Student6)
+Form1.students__.append(Student7)
+Form3.students__.append(Student8)
+Form1.students__.append(Student9)
 
-# Answer1.students___.append(Student1)
-# Answer2.students___.append(Student2)
-# Answer3.students___.append(Student3)
-# Answer3.students___.append(Student4)
-# Answer4.students___.append(Student5)
-# Answer3.students___.append(Student6)
-# Answer5.students___.append(Student7)
-# Answer4.students___.append(Student8)
-# Answer1.students___.append(Student9)
+Answer1.students___.append(Student1)
+Answer2.students___.append(Student2)
+Answer3.students___.append(Student3)
+Answer3.students___.append(Student4)
+Answer4.students___.append(Student5)
+Answer3.students___.append(Student6)
+Answer5.students___.append(Student7)
+Answer4.students___.append(Student8)
+Answer1.students___.append(Student9)
 
-# db.session.add_all([Student1, Student2, Student3, Student4, Student5, Student6, Student7, Student8, Student9])
-# db.session.add_all([Departament1, Departament2, Departament3])
-# db.session.add_all([Form1, Form2, Form3])
-# db.session.add_all([Answer1, Answer2, Answer3, Answer4, Answer5])
+db.session.add_all([Student1, Student2, Student3, Student4, Student5, Student6, Student7, Student8, Student9])
+db.session.add_all([Departament1, Departament2, Departament3])
+db.session.add_all([Form1, Form2, Form3])
+db.session.add_all([Answer1, Answer2, Answer3, Answer4, Answer5])
 
-# db.session.commit()
+db.session.commit()
 
 
 # main page
@@ -202,7 +203,10 @@ def new_student():
                 db.session.commit()
                 return redirect('/students')
             except:
-                form.student_email.errors = ['This name already exists!']
+                form.student_email.errors = ['Maybe this name already exists!']
+                form.department_number.errors = ['Perhaps this name does not exist, from the parent tables where it should exist!']
+                form.form_name.errors = ['Perhaps this name does not exist, from the parent tables where it should exist!']
+                form.answers_on_questions.errors = ['Perhaps this name does not exist, from the parent tables where it should exist!']
                 return render_template('student_form.html', form=form, form_name="New student", action="new_students")
 
     return render_template('student_form.html', form=form, form_name="New student", action="new_students")
