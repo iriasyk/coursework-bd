@@ -31,7 +31,7 @@ def validAge(form, field):
 
 def validStr(form, field):
     for i in field.data:
-        if i.lower() not in list('qwertyuioplkjhgfdsazxcvbnm'):
+        if i.lower() not in list('qwertyuioplkjhgfdsazxcvbnm '):
             raise ValidationError('Enter a not number and symbol!')
 
 
@@ -58,7 +58,8 @@ class StudentTableForm(Form):
     ])
 
     answers_on_questions = StringField("Content answers on questions: ", [  # primary key in table Answers
-        validators.DataRequired("Please enter array answers on questions!")
+        validStr,
+        validators.DataRequired("Please enter answer on questions!")
     ])
 
     student_name = StringField("student name: ", [
@@ -79,8 +80,9 @@ class StudentTableForm(Form):
 
     student_location = StringField("student location: ", [
         validators.DataRequired("Please enter student location!"),
-        validLocation,
-        # validators.Length(1, 15, "Name should be from 1 to 15 symbols")
+        validators.Length(1, 15, "Name should be from 1 to 15 symbols"),
+        validLocation
+
     ])
 
     family_state = StringField("family state: ", [
@@ -125,6 +127,7 @@ class StudentTableFormUpdate(Form):
 class FormTable(Form):
     form_name = StringField("form name: ", [  # primary key in table Form
         validators.DataRequired("Please enter form name!"),
+        validStr,
         validators.Length(1, 30, "Name should be from 1 to 30 symbols")
     ])
 
@@ -183,12 +186,14 @@ class DepartamentTableFormUpdate(Form):
 
 class AnswersTableForm(Form):
     answers_on_questions = StringField("Content answers on questions: ", [  # primary key
-        validators.DataRequired("Please enter array answers on questions!")
+        validators.DataRequired("Please enter array answers on questions!"),
+        validStr
     ])
 
     answers_priority = StringField("Content answer priority: ", [
         validators.Length(1, 30, "Name should be from 1 to 30 symbols"),
-        validators.DataRequired("Please enter priority for answer!")
+        validators.DataRequired("Please enter priority for answer!"),
+        validStr
     ])
 
     submit = SubmitField("Save")
@@ -197,7 +202,8 @@ class AnswersTableForm(Form):
 class AnswersTableFormUpdate(Form):
     answers_priority = StringField("Content answer priority: ", [
         validators.Length(1, 30, "Name should be from 1 to 30 symbols"),
-        validators.DataRequired("Please enter priority for answer!")
+        validators.DataRequired("Please enter priority for answer!"),
+        validStr
     ])
 
     submit = SubmitField("Save")
