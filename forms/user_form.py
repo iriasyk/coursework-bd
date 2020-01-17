@@ -39,7 +39,7 @@ def validQuestion(form, field):
     if field.data[len(field.data) - 1] != '?':
         raise ValidationError('Enter as a last item a question mark is expected! Add "?" character to the end.')
     for i in range(len(field.data)-1):
-        if field.data[i].lower() not in list('qwertyuioplkjhgfdsazxcvbnm,.:'):
+        if field.data[i].lower() not in list('qwertyuioplkjhgfdsazxcvbnm,.: '):
             raise ValidationError('Enter a not number and symbol!')
 
 
