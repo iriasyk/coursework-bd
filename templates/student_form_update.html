@@ -16,12 +16,12 @@
                 {{ form.hidden_tag() }}
 
                 <div class="form-group">
-                    {{ form.student_name.label }}
-                    {{ form.student_name(class_="form-control") }}
+                    {{ form.name_student.label }}
+                    {{ form.name_student(class_="form-control") }}
 
-                    {% if form.student_name.errors%}
+                    {% if form.name_student.errors%}
                         <div class="alert alert-danger" role="alert">
-                            {% for message in form.student_name.errors %}
+                            {% for message in form.name_student.errors %}
                                  <div>{{ message }}</div>
                             {% endfor %}
                         </div>
@@ -29,12 +29,12 @@
                 </div>
 
                 <div class="form-group">
-                    {{ form.student_age.label }}
-                    {{ form.student_age(class_="form-control") }}
+                    {{ form.status_at_the_departament.label }}
+                    {{ form.status_at_the_departament(class_="form-control") }}
 
-                    {% if form.student_age.errors%}
+                    {% if form.status_at_the_departament.errors%}
                         <div class="alert alert-danger" role="alert">
-                            {% for message in form.student_age.errors %}
+                            {% for message in form.status_at_the_departament.errors %}
                                  <div>{{ message }}</div>
                             {% endfor %}
                         </div>
@@ -42,12 +42,12 @@
                 </div>
 
                 <div class="form-group">
-                    {{ form.student_gender.label }}
-                    {{ form.student_gender(class_="form-control") }}
+                    {{ form.grade_at_the_departament.label }}
+                    {{ form.grade_at_the_departament(class_="form-control") }}
 
-                    {% if form.student_gender.errors%}
+                    {% if form.grade_at_the_departament.errors%}
                         <div class="alert alert-danger" role="alert">
-                            {% for message in form.student_gender.errors %}
+                            {% for message in form.grade_at_the_departament.errors %}
                                  <div>{{ message }}</div>
                             {% endfor %}
                         </div>
@@ -55,12 +55,12 @@
                 </div>
 
                 <div class="form-group">
-                    {{ form.student_location.label }}
-                    {{ form.student_location(class_="form-control") }}
+                    {{ form.expected_grade_point.label }}
+                    {{ form.expected_grade_point(class_="form-control") }}
 
-                    {% if form.student_location.errors%}
+                    {% if form.expected_grade_point.errors%}
                         <div class="alert alert-danger" role="alert">
-                            {% for message in form.student_location.errors %}
+                            {% for message in form.expected_grade_point.errors %}
                                 <div>{{ message }}</div>
                             {% endfor %}
                         </div>
@@ -68,19 +68,19 @@
                 </div>
 
                 <div class="form-group">
-                    {{ form.family_state.label }}
-                    {{ form.family_state(class_="form-control") }}
+                    {{ form.mood.label }}
+                    {{ form.mood(class_="form-control") }}
 
-                    {% if form.family_state.errors%}
+                    {% if form.mood.errors%}
                         <div class="alert alert-danger" role="alert">
-                            {% for message in form.family_state.errors %}
+                            {% for message in form.mood.errors %}
                                  <div>{{ message }}</div>
                             {% endfor %}
                         </div>
                     {%endif%}
                 </div>
 
-                {{ form.submit(class_="btn btn-success") }}
+                {{ form.submit(class_="btn btn-outline-primary") }}
             </form>
         </div>
         <!--/card-block-->

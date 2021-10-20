@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Answers on questions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for user in answers %}
+            <tr>
+                <td> {{ user.answer }} </td>
+                <td>
+                    <a href="/delete_answer/{{user.answer}} " type="button" class="btn btn-outline-primary" name="btn_delete_answer" data-answer="{{user.answer}}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td><a href="/new_answer" type="button" class="btn btn-primary" name="btn_new_answer">New answer</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

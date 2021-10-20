@@ -14,19 +14,19 @@
                 {{ form.hidden_tag() }}
 
                 <div class="form-group">
-                    {{ form.questions.label }}
-                    {{ form.questions(class_="form-control") }}
+                    {{ form.question.label }}
+                    {{ form.question(class_="form-control") }}
 
-                    {% if form.questions.errors%}
+                    {% if form.question.errors%}
                         <div class="alert alert-danger" role="alert">
-                            {% for message in form.questions.errors %}
+                            {% for message in form.question.errors %}
                                  <div>{{ message }}</div>
                             {% endfor %}
                         </div>
                     {%endif%}
                 </div>
 
-                {{ form.submit(class_="btn btn-success") }}
+                {{ form.submit(class_="btn btn-outline-primary") }}
             </form>
         </div>
         <!--/card-block-->

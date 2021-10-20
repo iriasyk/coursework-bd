@@ -1,0 +1,104 @@
+body {
+    /*background: #ededed;*/
+}
+
+table td {
+    padding: .5rem;
+}
+
+table th,
+table td {
+    text-align: center;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    text-align: right;
+}
+
+table tr th:nth-child(1),
+table tr td:nth-child(1) {
+    text-align: left;
+}
+
+table td a {
+    width: auto;
+    margin-bottom: 5px;
+}
+
+.navbar {
+
+}
+
+/*main {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*main .main-wrapper {*/
+/*    width: 100%;*/
+/*}*/
+
+main .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+main .container .profile-name,
+main .container .nick-name {
+    display: flex;
+    justify-content: center;
+}
+
+main .container .theme {
+    display: flex;
+    align-items: center;
+
+    text-align: end;
+}
+
+main .table-responsive {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*width: 100%;*/
+}
+
+main .table-responsive .table {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+
+    /*width: auto;*/
+}
+
+.success {
+    display: flex;
+    justify-content: center;
+}
+
+.bar-diagrams h1,
+.pie-diagrams h1,
+.correlation-diagram h1,
+.bar-diagrams .bar-title,
+.pie-diagrams .pie-title,
+.correlation-diagram .correlation-coef {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.pie-diagrams {
+    padding-top: 2rem;
+}
+
+.correlation-diagram {
+    padding-bottom: 50px;
+}
+
+.number-coef {
+    color: #0062cc;
+}

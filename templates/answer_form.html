@@ -13,32 +13,19 @@
                     {{ form.hidden_tag() }}
 
                     <div class="form-group">
-                        {{ form.answers_on_questions.label }}
-                        {{ form.answers_on_questions(class_="form-control") }}
+                        {{ form.answer.label }}
+                        {{ form.answer(class_="form-control") }}
 
-                        {% if form.answers_on_questions.errors%}
+                        {% if form.answer.errors%}
                             <div class="alert alert-danger" role="alert">
-                                {% for message in form.answers_on_questions.errors %}
+                                {% for message in form.answer.errors %}
                                     <div>{{ message }}</div>
                                 {% endfor %}
                             </div>
                         {%endif%}
                     </div>
 
-                    <div class="form-group">
-                        {{ form.answers_priority.label }}
-                        {{ form.answers_priority(class_="form-control") }}
-
-                        {% if form.answers_priority.errors%}
-                            <div class="alert alert-danger" role="alert">
-                                {% for message in form.answers_priority.errors %}
-                                    <div>{{ message }}</div>
-                                {% endfor %}
-                            </div>
-                        {%endif%}
-                    </div>
-
-                    {{ form.submit(class_="btn btn-success") }}
+                    {{ form.submit(class_="btn btn-outline-primary") }}
                 </form>
             </div>
             <!--/card-block-->

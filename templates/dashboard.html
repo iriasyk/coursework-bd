@@ -2,15 +2,51 @@
 
 {% block content %}
 
-    <h1>Bar ...</h1>
-    <div id="bar" class="bar"></div>
+    <div class="bar-diagrams">
+        <h1>Стовпчикові діаграми</h1>
 
-    <h1>Pie ...</h1>
-    <div id="pie" class="bar"></div>
+        <div>
+            <div class="bar-title"><span>кількість студентів з певною відповіддю</span></div>
+            <div id="bar" class="bar"></div>
+        </div>
+        <div>
+            <div class="bar-title"><span>кількість статусу студентів, що відповіли на питання</span></div>
+            <div id="bar2" class="bar"></div>
+        </div>
+        <div>
+            <div class="bar-title"><span>кількість обраних дисциплін при анкетуванні</span></div>
+            <div id="bar3" class="bar"></div>
+        </div>
+    </div>
 
-    <h1>Correlation ...</h1>
-    <div id="scatter"></div>
-    <div><span>Correlation dependency between age and students = {{ corr_coef }}</span></div>
+    <div class="pie-diagrams">
+        <h1>Кругові діаграми</h1>
+
+        <div>
+            <div class="pie-title"><span>відсоток захоплених і розчарованих студентів</span></div>
+            <div id="pie" class="pie"></div>
+        </div>
+        <div>
+            <div class="pie-title"><span>відсоток статусу студентів на кафедрі, що відповли на питання</span></div>
+            <div id="pie2" class="pie"></div>
+        </div>
+        <div>
+            <div class="pie-title"><span>відсоток обраних дисциплін при анкетуванні</span></div>
+            <div id="pie3" class="pie"></div>
+        </div>
+    </div>
+
+
+    <div class="correlation-diagram">
+        <h1>Кореляція</h1>
+        <div id="scatter"></div>
+        <div class="correlation-coef">
+            <span>
+                Кореляційна залежність між середнім балом студента та його очікуваною оцінкою у навчальній дисципліні =
+                <span class="number-coef">{{ corr_coef }}</span>
+            </span>
+        </div>
+    </div>
 
     <script src="{{ url_for('static', filename='js/d3.v5.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>

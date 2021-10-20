@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name subject</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in subjects %}
+            <tr>
+                <td> {{user.subject }} </td>
+                 <td>
+                    <a href="/delete_subject/{{user.subject}}"
+                       type="button"
+                       class="btn btn-outline-primary"
+                       name="btn_delete_subject"
+                       data-subject-id="{{user.subject}}"
+                    >
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+                <td>
+                    <a href="/new_subject" type="button" class="btn btn-primary" name="btn_new_subject">New Subject</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

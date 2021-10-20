@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Workshop</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FPM - Graduate work</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/default.css') }}">
+    <link rel="shortcut icon" href="https://kpi.ua/core/themes/bartik/logo.png" type="image/png">
+
     <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="navbar-header">
             <a class="navbar-brand" href="https://github.com/iriasyk" target="_blank">Ihor Riasyk</a>
       </div>
 
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/departament">Departament</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Homepage</a></li>
+        <li class="nav-item"><a class="nav-link" href="/subject">Subjects</a></li>
         <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
-        <li class="nav-item"><a class="nav-link" href="/forms">Forms</a></li>
-        <li class="nav-item"><a class="nav-link" href="/answers">Answers</a></li>
+        <li class="nav-item"><a class="nav-link" href="/question">Questions</a></li>
+        <li class="nav-item"><a class="nav-link" href="/answer">Answers</a></li>
         <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link" href="/NeuralForm">Neural</a></li>
       </ul>
     </nav>
 
     <main>
-        <div class="container">
-            {% block content %}<h1>Hello Program</h1>{% endblock %}
+        <div class="main-wrapper">
+            {% block content %}
+                <div class="container">
+                    <div>
+                        <a href="https://github.com/iriasyk" target="_blank">
+                            <img src="https://avatars2.githubusercontent.com/u/22893640?s=460&u=0cccc558f590524e9909e32a990730c33f406ab4&v=4" alt="photo a profile">
+                        </a>
+                        <div class="profile-name">Ihor Riasyk</div>
+                        <div class="nick-name">iriasyk</div>
+                    </div>
+                    <div class="theme">
+                        <h1>«Математичне та програмне забезпечення системи проведення та аналізу результатів електронного опитування студентів»</h1>
+                    </div>
+                </div>
+            {% endblock %}
         </div>
     </main>
 

@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Subject matter</th>
+                <th scope="col">Question</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in questions %}
+            <tr>
+                <td> {{ user.subject_matter }} </td>
+                <td> {{ user.question }} </td>
+                <td>
+                    <a href="/edit_question/{{user.subject_matter}}" type="button" class="btn btn-primary" name="btn_edit_form" data-qustion-name="{{user.subject_matter}}">Edit</a>
+                    <a href="/delete_question/{{user.subject_matter}}" type="button" class="btn btn-outline-primary" name="btn_delete_form" data-form-name="{{user.subject_matter}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+                <td> <a href="/new_question" type="button" class="btn btn-primary" name="btn_new_question">New question</a> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block content %}
+
+ <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Grade at the departament</th>
+                <th scope="col">Expected grade point</th>
+                <th scope="col">Mood</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Answer</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for user in students %}
+        <tr>
+            <td> {{user.email }} </td>
+            <td> {{user.name_student}} </td>
+            <td> {{user.status_at_the_departament}} </td>
+            <td> {{user.grade_at_the_departament}} </td>
+            <td> {{user.expected_grade_point}} </td>
+            <td> {{user.mood}} </td>
+            <td> {{user.subject}} </td>
+            <td> {{user.answer}} </td>
+            <td>
+                <a href="/edit_students/{{user.email}} " type="button" class="btn btn-primary" name="btn_edit_student" data-user-id="{{user.email}}">Edit</a>
+                <a href="/delete_student/{{user.email}} " type="button" class="btn btn-outline-primary" name="btn_delete_student" data-user-id="{{user.email}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+            <tr>
+                <td><a href="/new_student" type="button" class="btn btn-primary" name="btn_new_student">New Student</a></td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+
+{% endblock %}
